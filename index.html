@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathfinder | Interactive DSA Visualizer</title>
+    <meta name="description" content="An interactive web application demonstrating Dijkstra, A*, BFS, DFS and maze generation algorithms step-by-step.">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <h1>Pathfinder</h1>
+            <span class="badge">Visualizer</span>
+        </div>
+        <div class="instructions">
+            <p>Drag the <strong>Start (Green)</strong> and <strong>Target (Red)</strong> nodes. Click & drag to draw walls.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Control Panel -->
+        <aside class="control-panel glass-panel">
+            <section class="control-group">
+                <label for="algorithmSelect">Algorithm</label>
+                <select id="algorithmSelect" class="custom-select">
+                    <option value="dijkstra">Dijkstra's Algorithm</option>
+                    <option value="astar">A* Search</option>
+                    <option value="bfs">Breadth-First Search</option>
+                    <option value="dfs">Depth-First Search</option>
+                </select>
+            </section>
+
+            <section class="control-group">
+                <label for="mazeSelect">Maze Generation</label>
+                <div class="maze-actions">
+                    <select id="mazeSelect" class="custom-select">
+                        <option value="">Select Maze</option>
+                        <option value="recursive">Recursive Division</option>
+                        <option value="random">Random Spatter</option>
+                    </select>
+                    <button id="generateMazeBtn" class="btn btn-secondary">Create</button>
+                </div>
+            </section>
+            
+            <section class="control-group">
+                <label for="speedSelect">Animation Speed</label>
+                <select id="speedSelect" class="custom-select">
+                    <option value="fast">Fast</option>
+                    <option value="average" selected>Average</option>
+                    <option value="slow">Slow</option>
+                </select>
+            </section>
+
+            <div class="action-buttons">
+                <button id="visualizeBtn" class="btn btn-primary">Visualize Algorithm</button>
+                <button id="clearPathBtn" class="btn btn-tertiary">Clear Path Only</button>
+                <button id="clearBoardBtn" class="btn btn-danger">Clear Grid Completely</button>
+            </div>
+            
+            <div class="legend">
+                <div class="legend-item"><div class="node-legend node-start"></div> Start</div>
+                <div class="legend-item"><div class="node-legend node-finish"></div> Target</div>
+                <div class="legend-item"><div class="node-legend node-unvisited"></div> Unvisited</div>
+                <div class="legend-item"><div class="node-legend node-visited"></div> Visited</div>
+                <div class="legend-item"><div class="node-legend node-wall"></div> Wall</div>
+                <div class="legend-item"><div class="node-legend node-shortest-path"></div> Path</div>
+            </div>
+        </aside>
+
+        <!-- Grid Container -->
+        <section class="grid-container" id="gridContainer">
+            <div id="grid" class="grid">
+                <!-- Javascript will inject the nodes here -->
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
